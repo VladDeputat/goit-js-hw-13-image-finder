@@ -22,15 +22,18 @@ function createMarkup(data) {
 }
 
 function search(event) {
+  loadMoreBtnRef.classList.add('hidden');
   galleryRef.innerHTML = '';
   event.preventDefault();
   query = event.target.query.value;
   if (query.length === 0) {
-    throw error({ text: 'Please, type something.' });
+    error({ text: 'Please, type something.' });
+    return;
   }
   fetchContent(query, pageNum).then(res => {
     if (res.hits.length === 0) {
-      throw error({ text: 'Wrong input.' });
+      error({ text: 'Wrong input.' });
+      return;
     }
     createMarkup(res);
     loadMoreBtnRef.classList.remove('hidden');
