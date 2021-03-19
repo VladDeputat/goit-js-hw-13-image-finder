@@ -23,6 +23,7 @@ function createMarkup(data) {
 
 function search(event) {
   loadMoreBtnRef.classList.add('hidden');
+  pageNum = 1;
   galleryRef.innerHTML = '';
   event.preventDefault();
   query = event.target.query.value;
@@ -37,6 +38,9 @@ function search(event) {
     }
     createMarkup(res);
     loadMoreBtnRef.classList.remove('hidden');
+    if (res.hits.length < 12) {
+      loadMoreBtnRef.classList.add('hidden');
+    }
   });
 }
 
@@ -48,6 +52,9 @@ function loadMore() {
       top: document.documentElement.scrollHeight,
       behavior: 'smooth',
     });
+    if (res.hits.length < 12) {
+      loadMoreBtnRef.classList.add('hidden');
+    }
   });
 }
 

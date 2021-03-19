@@ -63,8 +63,14 @@ input {
   overflow: hidden;
 }
 
+.photo-card img {
+  cursor: zoom-in;
+  min-height: 300px;
+}
+
 .gallery-item {
   width: calc((100% / 3) - 15px);
+  /* height: 350px; */
   border-radius: 10px;
   background-color: rgba(117, 223, 148, 0.1);
   margin-bottom: auto;
@@ -81,8 +87,4 @@ input {
   color: black;
   display: flex;
   align-items: center;
-}
-
-.gallery__link {
-  text-decoration: none;
 }
