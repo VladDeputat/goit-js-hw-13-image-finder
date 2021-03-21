@@ -9,6 +9,7 @@ import '@pnotify/core/dist/BrightTheme.css';
 const galleryRef = document.querySelector('.gallery');
 const formRef = document.querySelector('#search-form');
 const loadMoreBtnRef = document.querySelector('.loadBtn');
+import { addBackToTop } from 'vanilla-back-to-top';
 
 let pageNum = 1;
 let query = '';
@@ -69,3 +70,9 @@ function openLightbox(e) {
 
   instance.show();
 }
+
+addBackToTop({
+  diameter: 40,
+  backgroundColor: '#ddd',
+  textColor: '#ff6b08',
+});
